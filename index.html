@@ -3,138 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>灌饼布丁基金 | 净值展示</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <meta http-equiv="refresh" content="0; url=./portfolio.html" />
+    <title>灌饼布丁基金 | 实盘混合策略</title>
+    <script>
+      window.location.replace("./portfolio.html");
+    </script>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <div class="brand-lockup">
-          <span class="brand-mark"></span>
-          <div>
-            <div class="brand-title">灌饼布丁基金</div>
-            <div class="brand-subtitle">NAV Chronicle</div>
-          </div>
-        </div>
-        <div class="topbar-note" id="latest-date"></div>
-      </header>
-
-      <main>
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Stitched Performance Archive</p>
-            <h1>4 月前跟踪回测，4 月后接入实盘，把策略演化成可持续更新的净值档案。</h1>
-            <p class="hero-text">
-              页面采用双源拼接口径：<span id="splice-date-inline"></span> 前使用回测资金曲线，
-              之后使用灌饼布丁基金实盘单位净值，并在切换点做无缝衔接。
-            </p>
-            <div class="hero-badges">
-              <span class="badge badge-strong">策略展示页</span>
-              <span class="badge">每日可更新</span>
-              <span class="badge">回测 + 实盘拼接</span>
-            </div>
-          </div>
-
-          <div class="hero-panel">
-            <div class="hero-panel-label">净值档案</div>
-            <div class="hero-panel-value" id="end-nav"></div>
-            <div class="hero-panel-grid">
-              <div>
-                <span>累计收益</span>
-                <strong id="total-return"></strong>
-              </div>
-              <div>
-                <span>最大回撤</span>
-                <strong id="max-drawdown"></strong>
-              </div>
-              <div>
-                <span>年化收益</span>
-                <strong id="annual-return"></strong>
-              </div>
-              <div>
-                <span>夏普比率</span>
-                <strong id="sharpe"></strong>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="metrics-section">
-          <div class="section-heading">
-            <p class="eyebrow">Key Figures</p>
-            <h2>指标概览</h2>
-          </div>
-          <div class="metrics-grid" id="metrics-grid"></div>
-        </section>
-
-        <section class="chart-section">
-          <div class="chart-copy">
-            <p class="eyebrow">Performance Curve</p>
-            <h2>资金曲线</h2>
-            <p>
-              主曲线完整展示自 <span id="period-start"></span> 至 <span id="period-end"></span>
-              的复合净值变化，背景色块标记数据来源切换。
-            </p>
-          </div>
-          <div class="chart-card">
-            <svg id="nav-chart" viewBox="0 0 1100 420" preserveAspectRatio="none"></svg>
-          </div>
-        </section>
-
-        <section class="split-section">
-          <article class="card">
-            <div class="card-heading">
-              <p class="eyebrow">Risk Trace</p>
-              <h3>回撤轨迹</h3>
-            </div>
-            <svg id="drawdown-chart" viewBox="0 0 520 260" preserveAspectRatio="none"></svg>
-          </article>
-
-          <article class="card narrative-card">
-            <div class="card-heading">
-              <p class="eyebrow">Method Note</p>
-              <h3>拼接口径</h3>
-            </div>
-            <ul class="narrative-list">
-              <li>切换日期：<span id="splice-date"></span></li>
-              <li>切换前：组合回测日度净值</li>
-              <li>切换后：灌饼布丁基金实盘单位净值</li>
-              <li>衔接方式：在切换点按比例缩放实盘净值</li>
-              <li>
-                当前样本：<span id="backtest-days"></span> 个回测交易日，
-                <span id="live-days"></span> 个实盘更新日
-              </li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="returns-section">
-          <article class="card">
-            <div class="card-heading">
-              <p class="eyebrow">Annual Snapshot</p>
-              <h3>年度收益</h3>
-            </div>
-            <div class="year-grid" id="year-grid"></div>
-          </article>
-
-          <article class="card">
-            <div class="card-heading">
-              <p class="eyebrow">Recent Months</p>
-              <h3>最近 6 个月</h3>
-            </div>
-            <div class="month-bars" id="month-bars"></div>
-          </article>
-        </section>
-      </main>
-    </div>
-
-    <script src="./data/performance.js"></script>
-    <script src="./app.js"></script>
+    <p>正在进入实盘混合策略页面...</p>
+    <p><a href="./portfolio.html">实盘混合策略</a> | <a href="./etf-portfolio.html">ETF轮动策略</a></p>
   </body>
-  </html>
+</html>
