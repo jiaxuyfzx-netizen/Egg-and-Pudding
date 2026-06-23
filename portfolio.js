@@ -1,6 +1,15 @@
 const portfolioData = window.__PERFORMANCE_DATA__;
 let calendarMonthIndex = 0;
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 function monthKey(dateStr) {
   return dateStr.slice(0, 7);
 }
@@ -92,6 +101,90 @@ function buildCalendar(series) {
   if (next) next.disabled = calendarMonthIndex === months.length - 1;
 }
 
+function renderSelectionRows(date) {
+  const selection = portfolioData.selection;
+  const summary = document.getElementById("selection-summary");
+  const table = document.getElementById("selection-table");
+  if (!selection || !summary || !table) return;
+
+  const rows = selection.selectionByDate?.[date] ?? [];
+  const strategyCount = new Set(rows.map((row) => row.strategy)).size;
+  const totalWeight = rows.reduce((sum, row) => sum + Number(row.targetWeightPct || 0), 0);
+  summary.innerHTML = `
+    <div>
+      <small>选股日期</small>
+      <strong>${escapeHtml(date)}</strong>
+    </div>
+    <div>
+      <small>选股数量</small>
+      <strong>${rows.length}</strong>
+    </div>
+    <div>
+      <small>策略数量</small>
+      <strong>${strategyCount}</strong>
+    </div>
+    <div>
+      <small>目标仓位合计</small>
+      <strong>${formatPct(totalWeight)}</strong>
+    </div>
+  `;
+
+  if (!rows.length) {
+    table.innerHTML = `<div class="selection-empty">该日期没有选股记录</div>`;
+    return;
+  }
+
+  const head = `
+    <div class="selection-row selection-head">
+      <span>策略</span>
+      <span>代码</span>
+      <span>名称</span>
+      <span>目标仓位</span>
+      <span>分批仓位</span>
+      <span>择时</span>
+      <span>排名</span>
+      <span>调仓类型</span>
+    </div>
+  `;
+  const body = rows
+    .map(
+      (row) => `
+        <div class="selection-row">
+          <span>${escapeHtml(row.strategy)}</span>
+          <span>${escapeHtml(row.code)}</span>
+          <span>${escapeHtml(row.name)}</span>
+          <span>${formatPct(row.targetWeightPct)}</span>
+          <span>${formatPct(row.entryWeightPct)}</span>
+          <span>${escapeHtml(row.timingSignal)}</span>
+          <span>${row.factorRank == null ? "-" : escapeHtml(row.factorRank)}</span>
+          <span>${escapeHtml(row.rebalanceType)}</span>
+        </div>
+      `
+    )
+    .join("");
+  table.innerHTML = head + body;
+}
+
+function initSelectionViewer() {
+  const selection = portfolioData.selection;
+  const select = document.getElementById("selection-date");
+  const section = document.getElementById("selection-section");
+  if (!selection || !select || !section) return;
+
+  const dates = selection.selectionDates ?? [];
+  if (!dates.length) {
+    section.hidden = true;
+    return;
+  }
+
+  select.innerHTML = dates
+    .map((date) => `<option value="${escapeHtml(date)}">${escapeHtml(date)}</option>`)
+    .join("");
+  select.value = selection.selectionLatestDate ?? dates[dates.length - 1];
+  renderSelectionRows(select.value);
+  select.addEventListener("change", () => renderSelectionRows(select.value));
+}
+
 function initPortfolioPage() {
   if (!portfolioData || !document.getElementById("snapshot-grid")) {
     return;
@@ -139,6 +232,8 @@ function initPortfolioPage() {
       buildCalendar(portfolioData.series);
     });
   }
+
+  initSelectionViewer();
 }
 
 initPortfolioPage();
