@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灌饼布丁基金 | 实盘混合策略</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar topbar-nav">
+        <div class="brand-lockup">
+          <span class="brand-mark"></span>
+          <div>
+            <div class="brand-title">灌饼布丁基金</div>
+            <div class="brand-subtitle">Portfolio Archive</div>
+          </div>
+        </div>
+        <nav class="page-nav">
+          <a href="./index.html">净值首页</a>
+          <a href="./portfolio.html" class="is-active">实盘混合策略</a>
+          <a href="./etf-portfolio.html">ETF轮动策略</a>
+        </nav>
+        <div class="topbar-note" id="portfolio-latest-date"></div>
+      </header>
+
+      <main class="portfolio-page">
+        <section class="portfolio-hero">
+          <div class="portfolio-hero-copy">
+            <p class="eyebrow">Moon Imprint Style Portfolio</p>
+            <h1>实盘混合策略：落榜生+小栗子+苏打水</h1>
+            <p>
+              用回测打底，用实盘续写。这里不只展示赚了多少，也把回撤、阶段表现和近期收益日历一起铺开。
+            </p>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Current Snapshot</p>
+              <h2>当前快照</h2>
+            </div>
+            <p class="section-caption">6 个指标，快速判断赚不赚钱、抗不抗跌、值不值得长期拿。</p>
+          </div>
+          <div class="snapshot-grid" id="snapshot-grid"></div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Return Curve</p>
+              <h2>收益率曲线</h2>
+            </div>
+            <p class="section-caption">展示拼接后的完整资金曲线，只保留一条组合主线。</p>
+          </div>
+          <div class="card">
+            <div class="range-switch" id="curve-range-switch">
+              <button class="range-chip is-active" type="button" data-range="1m">近一月</button>
+              <button class="range-chip" type="button" data-range="3m">近三月</button>
+              <button class="range-chip" type="button" data-range="1y">近一年</button>
+              <button class="range-chip" type="button" data-range="all">全部</button>
+            </div>
+            <div class="curve-summary">
+              <div class="curve-stat">
+                <small>最新净值</small>
+                <strong id="curve-end-nav"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>成立以来</small>
+                <strong id="curve-total-return"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>年化收益</small>
+                <strong id="curve-annual-return"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>当前回撤</small>
+                <strong id="curve-current-drawdown"></strong>
+              </div>
+            </div>
+            <div class="curve-note">
+              <span class="curve-pill">合并口径</span>
+              <p>2026-04-01 前使用回测净值，之后优先使用实盘净值延续曲线。</p>
+            </div>
+            <svg id="portfolio-nav-chart" viewBox="0 0 1100 420" preserveAspectRatio="none"></svg>
+          </div>
+        </section>
+
+        <section class="portfolio-two-col">
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Drawdown Analysis</p>
+              <h3>回撤分析</h3>
+            </div>
+            <svg id="portfolio-drawdown-chart" viewBox="0 0 520 260" preserveAspectRatio="none"></svg>
+            <div class="drawdown-table" id="drawdown-table"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Period Detail</p>
+              <h3>历史区间表现明细</h3>
+            </div>
+            <div class="interval-table" id="interval-table"></div>
+          </article>
+        </section>
+
+        <section class="portfolio-two-col">
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Return Calendar</p>
+              <h3>收益率日历</h3>
+            </div>
+            <div class="calendar-toolbar">
+              <button class="calendar-nav" id="calendar-prev" type="button">‹</button>
+              <div class="calendar-head" id="calendar-head"></div>
+              <button class="calendar-nav" id="calendar-next" type="button">›</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Asset Allocation</p>
+              <h3>资产配置</h3>
+            </div>
+            <div class="allocation-lock">
+              <p>当前先保留为组合说明位。后续你给我资产结构或调仓明细，我可以继续补成完整配置模块。</p>
+              <div class="allocation-pill">即将接入</div>
+              <ul class="narrative-list">
+                <li>数据来源：当前页面只接净值序列</li>
+                <li>可扩展：仓位结构、调仓记录、组合说明</li>
+                <li>视觉方向：保持和参考页一致的高端暖色组合页气质</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data/performance.js"></script>
+    <script src="./app.js"></script>
+    <script src="./portfolio.js"></script>
+  </body>
+  </html>

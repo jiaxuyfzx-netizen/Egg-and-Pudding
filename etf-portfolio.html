@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灌饼布丁基金 | ETF轮动策略</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar topbar-nav">
+        <div class="brand-lockup">
+          <span class="brand-mark"></span>
+          <div>
+            <div class="brand-title">灌饼布丁基金</div>
+            <div class="brand-subtitle">Portfolio Archive</div>
+          </div>
+        </div>
+        <nav class="page-nav">
+          <a href="./index.html">净值首页</a>
+          <a href="./portfolio.html">实盘混合策略</a>
+          <a href="./etf-portfolio.html" class="is-active">ETF轮动策略</a>
+        </nav>
+        <div class="topbar-note" id="portfolio-latest-date"></div>
+      </header>
+
+      <main class="portfolio-page">
+        <section class="portfolio-hero">
+          <div class="portfolio-hero-copy">
+            <p class="eyebrow">Moon Imprint Style Portfolio</p>
+            <h1>ETF轮动策略</h1>
+            <p>
+              这一页沿用同样的展示结构，但数据来源切换为 ETF 轮动回测资金曲线，用来单独追踪轮动模型的净值、回撤与阶段表现。
+            </p>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Current Snapshot</p>
+              <h2>当前快照</h2>
+            </div>
+            <p class="section-caption">统一读取 ETF 轮动回测结果，作为单策略档案页展示。</p>
+          </div>
+          <div class="snapshot-grid" id="snapshot-grid"></div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Return Curve</p>
+              <h2>收益率曲线</h2>
+            </div>
+            <p class="section-caption">展示 ETF 轮动策略的完整资金曲线。</p>
+          </div>
+          <div class="card">
+            <div class="range-switch" id="curve-range-switch">
+              <button class="range-chip is-active" type="button" data-range="1m">近一月</button>
+              <button class="range-chip" type="button" data-range="3m">近三月</button>
+              <button class="range-chip" type="button" data-range="1y">近一年</button>
+              <button class="range-chip" type="button" data-range="all">全部</button>
+            </div>
+            <div class="curve-summary">
+              <div class="curve-stat">
+                <small>最新净值</small>
+                <strong id="curve-end-nav"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>成立以来</small>
+                <strong id="curve-total-return"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>年化收益</small>
+                <strong id="curve-annual-return"></strong>
+              </div>
+              <div class="curve-stat">
+                <small>当前回撤</small>
+                <strong id="curve-current-drawdown"></strong>
+              </div>
+            </div>
+            <div class="curve-note">
+              <span class="curve-pill">回测口径</span>
+              <p>本页全程使用 ETF 轮动策略回测资金曲线，不拼接实盘数据。</p>
+            </div>
+            <svg id="portfolio-nav-chart" viewBox="0 0 1100 420" preserveAspectRatio="none"></svg>
+          </div>
+        </section>
+
+        <section class="portfolio-two-col">
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Drawdown Analysis</p>
+              <h3>回撤分析</h3>
+            </div>
+            <svg id="portfolio-drawdown-chart" viewBox="0 0 520 260" preserveAspectRatio="none"></svg>
+            <div class="drawdown-table" id="drawdown-table"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Period Detail</p>
+              <h3>历史区间表现明细</h3>
+            </div>
+            <div class="interval-table" id="interval-table"></div>
+          </article>
+        </section>
+
+        <section class="portfolio-two-col">
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Return Calendar</p>
+              <h3>收益率日历</h3>
+            </div>
+            <div class="calendar-toolbar">
+              <button class="calendar-nav" id="calendar-prev" type="button">‹</button>
+              <div class="calendar-head" id="calendar-head"></div>
+              <button class="calendar-nav" id="calendar-next" type="button">›</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-heading">
+              <p class="eyebrow">Strategy Note</p>
+              <h3>策略说明</h3>
+            </div>
+            <div class="allocation-lock">
+              <p>这一页专门用于 ETF 轮动策略归档。后续如果你希望补充持仓 ETF、轮动规则或调仓信号，也可以继续加在这里。</p>
+              <div class="allocation-pill">ETF 策略页</div>
+              <ul class="narrative-list">
+                <li>数据来源：ETF轮动回测资金曲线</li>
+                <li>展示内容：净值、回撤、阶段收益、月度日历</li>
+                <li>风格保持：与实盘混合策略页面一致</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data/etf_performance.js"></script>
+    <script>
+      window.__PERFORMANCE_DATA__ = window.__ETF_PERFORMANCE_DATA__;
+    </script>
+    <script src="./app.js"></script>
+    <script src="./portfolio.js"></script>
+  </body>
+  </html>
