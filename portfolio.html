@@ -144,7 +144,9 @@
       </main>
     </div>
 
-    <script src="./data/performance.js"></script>
+    <script>
+      document.write('<script src="./data/performance.js?v=' + Date.now() + '"><\/script>');
+    </script>
     <script src="./app.js"></script>
     <script src="./portfolio.js"></script>
   </body>

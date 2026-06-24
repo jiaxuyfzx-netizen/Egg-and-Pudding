@@ -161,7 +161,9 @@
       </main>
     </div>
 
-    <script src="./data/etf_performance.js"></script>
+    <script>
+      document.write('<script src="./data/etf_performance.js?v=' + Date.now() + '"><\/script>');
+    </script>
     <script>
       window.__PERFORMANCE_DATA__ = window.__ETF_PERFORMANCE_DATA__;
     </script>
