@@ -2,22 +2,22 @@ window.__ETF_PERFORMANCE_DATA__ = {
   "meta": {
     "spliceDate": null,
     "spliceScale": null,
-    "backtestRowsUsed": 1809,
+    "backtestRowsUsed": 1810,
     "liveRowsUsed": 0,
     "strategyName": "ETF轮动策略",
     "isSingleBacktest": true,
     "periodStart": "2019-01-02",
-    "periodEnd": "2026-06-22",
-    "latestDate": "2026-06-22",
-    "totalReturnPct": 997.38,
-    "annualReturnPct": 37.78,
+    "periodEnd": "2026-06-23",
+    "latestDate": "2026-06-23",
+    "totalReturnPct": 954.0,
+    "annualReturnPct": 37.03,
     "maxDrawdownPct": -12.14,
-    "annualVolPct": 19.37,
-    "sharpe": 1.82,
-    "ytdReturnPct": 46.29,
-    "last30ReturnPct": 1.64,
+    "annualVolPct": 19.42,
+    "sharpe": 1.79,
+    "ytdReturnPct": 40.51,
+    "last30ReturnPct": -2.38,
     "startNav": 1.0,
-    "endNav": 10.973805,
+    "endNav": 10.540019,
     "yearlyReturns": [
       {
         "year": 2019,
@@ -49,7 +49,7 @@ window.__ETF_PERFORMANCE_DATA__ = {
       },
       {
         "year": 2026,
-        "returnPct": 46.29
+        "returnPct": 40.51
       }
     ],
     "monthlyReturns": [
@@ -411,47 +411,47 @@ window.__ETF_PERFORMANCE_DATA__ = {
       },
       {
         "month": "2026-06",
-        "returnPct": 2.44
+        "returnPct": -1.61
       }
     ],
     "sourceBreakdown": {
-      "backtestDays": 1809,
+      "backtestDays": 1810,
       "liveDays": 0
     },
     "intervalRows": [
       {
         "label": "成立以来",
-        "returnPct": 997.38,
+        "returnPct": 954.0,
         "maxDrawdownPct": -12.14
       },
       {
         "label": "今年以来",
-        "returnPct": 46.29,
+        "returnPct": 40.51,
         "maxDrawdownPct": -6.3
       },
       {
         "label": "近1月",
-        "returnPct": 1.64,
+        "returnPct": -2.38,
         "maxDrawdownPct": -6.3
       },
       {
         "label": "近3月",
-        "returnPct": 26.12,
+        "returnPct": 20.39,
         "maxDrawdownPct": -6.3
       },
       {
         "label": "近6月",
-        "returnPct": 47.56,
+        "returnPct": 42.14,
         "maxDrawdownPct": -6.3
       },
       {
         "label": "近1年",
-        "returnPct": 102.24,
+        "returnPct": 94.25,
         "maxDrawdownPct": -10.42
       },
       {
         "label": "实盘阶段",
-        "returnPct": 24.38,
+        "returnPct": 19.46,
         "maxDrawdownPct": -6.3
       }
     ],
@@ -564,6 +564,11 @@ window.__ETF_PERFORMANCE_DATA__ = {
         {
           "day": 22,
           "returnPct": 2.54,
+          "source": "backtest"
+        },
+        {
+          "day": 23,
+          "returnPct": -3.95,
           "source": "backtest"
         }
       ]
@@ -13232,6 +13237,13 @@ window.__ETF_PERFORMANCE_DATA__ = {
       "drawdownPct": 0.0,
       "dailyReturnPct": 2.5403,
       "source": "backtest"
+    },
+    {
+      "date": "2026-06-23",
+      "nav": 10.540019,
+      "drawdownPct": -3.9529,
+      "dailyReturnPct": -3.9529,
+      "source": "backtest"
     }
   ],
   "selection": {
@@ -15044,7 +15056,8 @@ window.__ETF_PERFORMANCE_DATA__ = {
       "2026-06-16",
       "2026-06-17",
       "2026-06-18",
-      "2026-06-22"
+      "2026-06-22",
+      "2026-06-23"
     ],
     "selectionByDate": {
       "2019-01-02": [
@@ -116140,8 +116153,82 @@ window.__ETF_PERFORMANCE_DATA__ = {
           "factorRank": 5.0,
           "rebalanceType": "计划"
         }
+      ],
+      "2026-06-23": [
+        {
+          "code": "sz159908",
+          "name": "博时创业板ETF",
+          "strategy": "#0.全球ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 25.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 1.0,
+          "rebalanceType": "计划"
+        },
+        {
+          "code": "sz159994",
+          "name": "5GETF",
+          "strategy": "#1.ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 5.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 1.0,
+          "rebalanceType": "计划"
+        },
+        {
+          "code": "sh512480",
+          "name": "国联安半导体ETF",
+          "strategy": "#1.ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 5.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 2.0,
+          "rebalanceType": "计划"
+        },
+        {
+          "code": "sz159732",
+          "name": "华夏国证消费电子主题ETF",
+          "strategy": "#1.ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 5.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 3.0,
+          "rebalanceType": "计划"
+        },
+        {
+          "code": "sh562800",
+          "name": "嘉实中证稀有金属主题ETF",
+          "strategy": "#1.ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 5.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 4.0,
+          "rebalanceType": "计划"
+        },
+        {
+          "code": "sz159326",
+          "name": "华夏中证电网设备主题ETF",
+          "strategy": "#1.ETF轮动策略",
+          "holdingPeriod": "2_1",
+          "rebalanceTime": "open-open",
+          "targetWeightPct": 5.0,
+          "timingSignal": 1.0,
+          "entryWeightPct": 50.0,
+          "factorRank": 5.0,
+          "rebalanceType": "计划"
+        }
       ]
     },
-    "selectionLatestDate": "2026-06-22"
+    "selectionLatestDate": "2026-06-23"
   }
 };
